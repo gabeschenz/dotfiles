@@ -1,0 +1,12 @@
+#! /usr/bin/env bash
+
+if [[ $(uname) == "Linux" ]]; then
+    alias ls='ls -F --color=always'
+else
+    alias ls='ls -F'
+fi
+
+alias ll='ls -l'
+alias la='ll -a'
+alias lt='ll -t'
+alias ltr='lt -r'

@@ -1,0 +1,45 @@
+[init]
+	defaultBranch = main
+[user]
+	name = GabeSchenz
+	email = gabe@sche.nz
+[core]
+	editor = nvim
+	pager = bat
+
+[push]
+	autoSetupRemote = true
+[fetch]
+	prune = true
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[gc]
+	autoDetach = false
+	pruneExpire = now
+[credential]
+	helper = cache --timeout 3600
+[safe]
+	directory = *
+[alias]
+	; Repo maintenance
+	prune-branches = !git remote prune origin && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -d
+
+	; reporting
+	ll = log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn\" --decorate --numstat
+	lg = !git log --pretty=format:\"%C(magenta)%h%Creset -%C(red)%d%Creset %s %C(dim green)(%cr) [%an]\" --graph --abbrev-commit -30
+	br = branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
+	graph = log --oneline --graph --decorate
+	recent = !git branch --sort=-committerdate | head
+
+	; daily operations
+  s = status
+  co = checkout
+	cob = checkout -b
+	del = branch -D
+	save = !git add -A && git commit -m 'chore: commit save point'
+	undo = reset HEAD~1 --mixed
+	res = !git reset --hard

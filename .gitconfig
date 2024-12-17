@@ -2,7 +2,7 @@
 	defaultBranch = main
 [user]
 	name = GabeSchenz
-	email = gabe@sche.nz
+	email = gabe.schenz@allergan.com
 [core]
 	editor = nvim
 	pager = bat
@@ -43,5 +43,5 @@
 	save = !git add -A && git commit -m 'chore: commit save point'
 	undo = reset HEAD~1 --mixed
 	res = !git reset --hard
-	fix = "!f() { current_branch=\"$(git branch --show-current)\"; git rebase -i $(git merge-base HEAD main); git push origin +\"${current_branch}\"; }; f"
+	fix = "!f() { current_branch=\"$(git branch --show-current)\"; git rebase -i $(git merge-base HEAD dev); git push origin +\"${current_branch}\"; }; f"
 

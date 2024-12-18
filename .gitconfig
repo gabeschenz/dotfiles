@@ -4,7 +4,7 @@
 	name = GabeSchenz
 	email = gabe.schenz@allergan.com
 [core]
-	editor = nvim
+	editor = code --wait
 	pager = delta
 
 [diff]
@@ -60,6 +60,8 @@
 	fix = "!f() { current_branch=\"$(git branch --show-current)\"; git rebase -i $(git merge-base HEAD dev); git push origin +\"${current_branch}\"; }; f"
 
 [log]
-	date = iso
+	date = iso8601
 [help]
 	autocorrect = immediate
+[commit]
+	verbose = true

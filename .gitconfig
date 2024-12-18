@@ -5,7 +5,21 @@
 	email = gabe.schenz@allergan.com
 [core]
 	editor = nvim
-	pager = bat
+	pager = delta
+
+[diff]
+  # Use better, descriptive initials (c, i, w) instead of a/b.
+  mnemonicPrefix = true
+  # Show renames/moves as such
+  renames = true
+  # When using --word-diff, assume --word-diff-regex=.
+  wordRegex = .
+  # Display submodule-related information (commit listings)
+  submodule = log
+  # Use VSCode as default diff tool when running `git diff-tool`
+  tool = vscode
+[difftool "vscode"]
+  cmd = code --wait --diff $LOCAL $REMOTE
 
 [push]
 	autoSetupRemote = true
@@ -45,3 +59,7 @@
 	res = !git reset --hard
 	fix = "!f() { current_branch=\"$(git branch --show-current)\"; git rebase -i $(git merge-base HEAD dev); git push origin +\"${current_branch}\"; }; f"
 
+[log]
+	date = iso
+[help]
+	autocorrect = immediate

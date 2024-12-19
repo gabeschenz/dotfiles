@@ -4,7 +4,7 @@ if /usr/bin/which -s nvim; then
 	alias vim=nvim
 fi
 
-alias ls='gls --color=always -F --group-directories-first'
+alias ls='gls -F --group-directories-first'
 alias ll='ls -l --human-readable --dereference-command-line'
 alias la='ll -A'
 alias ltr='ll -tr'

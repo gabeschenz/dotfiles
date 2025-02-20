@@ -1,5 +1,7 @@
-source $HOME/.variables.sh
-source $HOME/.aliases.sh
+source $HOME/.profile
+source $HOME/.zsh-variables.sh
+source $HOME/.zsh-functions.sh
+source $HOME/.zsh-aliases.sh
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -18,6 +20,7 @@ HYPHEN_INSENSITIVE="true"
 # zstyle ':omz:update' mode disabled  # disable automatic updates
 zstyle ':omz:update' mode auto      # update automatically without asking
 # zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+zstyle ':autocomplete:*' delay 0.3
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
@@ -45,14 +48,16 @@ HIST_STAMPS="yyyy-mm-dd"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
 	aws
-	git
 	fzf
-	git
-	zsh-autosuggestions
-	zsh-autocomplete
+	gh
+	git-commit
+	macos
+  zsh-autosuggestions
 	zsh-syntax-highlighting # leave this one as last
 )
 
+#	zsh-autocomplete
+# zsh-autosuggestions
 source $ZSH/oh-my-zsh.sh
 
 alias zshconfig="$EDITOR ~/.zshrc"
@@ -65,3 +70,10 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 autoload -U compinit && compinit
 eval "$(register-python-argcomplete pipx)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source <(fzf --zsh)
+
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/schengx/.cache/lm-studio/bin"

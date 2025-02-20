@@ -1,6 +1,7 @@
 #! /usr/bin/env zsh 
 
 if /usr/bin/which -s nvim; then
+	alias v=nvim
 	alias vim=nvim
 fi
 

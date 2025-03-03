@@ -39,12 +39,13 @@
 	directory = *
 [alias]
   aliases = config --get-regexp alias
+  open = !git-open
 	; Repo maintenance
 	prune-branches = !git remote prune origin && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -d
 	; reporting
 	ll = log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn\" --decorate --numstat
 	lg = !git log --pretty=format:\"%C(magenta)%h%Creset -%C(red)%d%Creset %s %C(dim green)(%cr) [%an]\" --graph --abbrev-commit -30
-	br = branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
+	br = ! git --no-pager branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
 	graph = log --oneline --graph --decorate
 	recent = !git branch --sort=-committerdate | head
 
@@ -78,4 +79,4 @@
 [commit]
 	verbose = true
 [oh-my-zsh]
-	git-commit-alias = db32c6ccce91e0b36873c8bfccd1e40f452a2060
+	git-commit-alias = 6e7ac0544e71c7b777746cb50f70de68c6495b86

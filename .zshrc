@@ -1,7 +1,8 @@
 source $HOME/.profile
-source $HOME/.zsh-variables.sh
-source $HOME/.zsh-functions.sh
-source $HOME/.zsh-aliases.sh
+source $HOME/.zshrc-variables.sh
+source $HOME/.zshrc-functions.sh
+source $HOME/.zshrc-aliases.sh
+source $HOME/.zshrc-fzf-git.sh
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]

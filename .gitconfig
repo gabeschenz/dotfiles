@@ -1,42 +1,49 @@
+[column]
+  ui = auto
+
+[core]
+  editor = nvim
+  excludesfile = ~/.gitignore
+
+[diff]
+  algorithm = histogram
+  mnemonicPrefix = true
+  renames = true
+  colorMoved = plain
+
 [init]
 	defaultBranch = main
+
 [user]
 	name = Gabe Schenz
 	email = gabe.schenz@allergan.com
-[core]
-	editor = code --wait
-
-[diff]
-  # Use better, descriptive initials (c, i, w) instead of a/b.
-  mnemonicPrefix = true
-  # Show renames/moves as such
-  renames = true
-  # When using --word-diff, assume --word-diff-regex=.
-  wordRegex = .
-  # Display submodule-related information (commit listings)
-  submodule = log
-  # Use VSCode as default diff tool when running `git diff-tool`
-  tool = vscode
-[difftool "vscode"]
-  cmd = code --wait --diff $LOCAL $REMOTE
 
 [push]
-	autoSetupRemote = true
+  default = simple
+  autoSetupRemote = true
+  followTags = true
+
 [fetch]
-	prune = true
+  prune = true
+  pruneTags = true
+  all = true
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+
 [gc]
 	autoDetach = false
 	pruneExpire = now
+
 [credential]
 	helper = cache --timeout 3600
+
 [safe]
 	directory = *
+
 [alias]
   aliases = config --get-regexp alias
   open = !git-open
@@ -74,9 +81,21 @@
 	nb = "!f() { TYPE=$(gum choose \"chore\" \"docs\" \"feat\" \"fix\" \"refactor\" \"style\" \"test\"); STORY=$(gum)}"
 [log]
 	date = iso8601
+
 [help]
-	autocorrect = immediate
+	autocorrect = prompt
+
 [commit]
 	verbose = true
+
+[rerere]
+  enabled = true
+  autoupdate = true
+
+[rebase]
+  autoSquash = true
+  autoStash = true
+  updateRefs = true
+
 [oh-my-zsh]
 	git-commit-alias = 6e7ac0544e71c7b777746cb50f70de68c6495b86

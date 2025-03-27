@@ -45,20 +45,25 @@
 	directory = *
 
 [alias]
-  aliases = config --get-regexp alias
-  open = !git-open
+	aliases = config --get-regexp alias
+	overview = !git status -sb && git log --oneline -5
+	emoji-status = !bash -c 'git status -sb | sed "s/^##/🔖/; s/^A/✅/; s/^M/📝/; s/^D/❌/; s/^R/♻️/; s/^??/❓/"'
+
+	open = !git-open
 	; Repo maintenance
 	prune-branches = !git remote prune origin && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -d
 	; reporting
-	ll = log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn\" --decorate --numstat
-	lg = !git log --pretty=format:\"%C(magenta)%h%Creset -%C(red)%d%Creset %s %C(dim green)(%cr) [%an]\" --graph --abbrev-commit -30
+	; https://git-scm.com/docs/git-log#_pretty_formats
+	l = log --pretty=format:\"%C(magenta)%h%C(reset) • (%cr) •%C(cyan)%d%C(reset) • %C(ul green)%s%C(reset) • %C(bold blue)[%an]\" --decorate --numstat
+	lg = !git log --pretty=format:\"%C(magenta)%h%Creset -%C(cyan)%d%C(reset)%C(green) %s %C(blue)(%cr)%C(reset) [%an]\" --graph --abbrev-commit -30
 	br = ! git --no-pager branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
 	graph = log --oneline --graph --decorate
 	recent = !git branch --sort=-committerdate | head
 
 	; daily operations
-  s = --paginate status
-  co = checkout
+	s = status --short --branch --show-stash --untracked-files=no
+	ss = status --branch --untracked-files=no
+	co = checkout
 	cob = checkout -b
 	del = branch -D
 	save = !git add -A && git commit -m 'chore: commit save point'
@@ -98,4 +103,11 @@
   updateRefs = true
 
 [oh-my-zsh]
-	git-commit-alias = 6e7ac0544e71c7b777746cb50f70de68c6495b86
+	git-commit-alias = fa396ad7718af77e896472772bffd4a7e9110193
+[color]
+	ui = auto
+[status]
+	verbose = true
+	porcelain = true
+	showStash = true
+	showUntrackedFiles = true

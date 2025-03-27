@@ -1,3 +1,7 @@
+source /opt/homebrew/opt/zinit/zinit.zsh
+zinit ice as"completion"
+zinit snippet https://github.com/dbt-labs/dbt-completion.bash/blob/master/_dbt
+
 source $HOME/.profile
 source $HOME/.zshrc-variables.sh
 source $HOME/.zshrc-functions.sh

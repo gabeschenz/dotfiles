@@ -1,6 +1,6 @@
 export BAT_CONFIG_PATH="$HOME/.bat.conf"
 export SSL_CERT_FILE="$HOME/cacert.pem"
-export PATH="$PATH:/Users/schengx/.local/bin"
+export PATH="$PATH:/Users/gschenz/.local/bin"
 export MANPAGER='nvim +Man!'
 
 export FZF_DEFAULT_COMMAND='fd --hidden --strip-cwd-prefix --exclude .git --type f'

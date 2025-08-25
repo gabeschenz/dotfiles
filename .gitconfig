@@ -103,7 +103,7 @@
   updateRefs = true
 
 [oh-my-zsh]
-	git-commit-alias = fa396ad7718af77e896472772bffd4a7e9110193
+	git-commit-alias = b95022dde6a200ba3dbb96c8b997ba74d8db0136
 [color]
 	ui = auto
 [status]

@@ -1,4 +1,4 @@
-#! /usr/bin/env zsh 
+#! /usr/bin/env zsh
 
 if /usr/bin/which -s nvim; then
 	alias v=nvim
@@ -11,8 +11,7 @@ alias la='ll -A'
 alias ltr='ll -tr'
 alias latr='la -tr'
 
-# alias config='/usr/bin/git --git-dir=/Users/schengx/.cfg/ --work-tree=/Users/schengx'
-alias config='git --git-dir=/Users/schengx/.cfg/ --work-tree=/Users/schengx'
-alias configlg='/opt/homebrew/bin/lazygit --git-dir=/Users/schengx/.cfg/ --work-tree=/Users/schengx'
+alias config='git --git-dir=/Users/gschenz/.cfg/ --work-tree=/Users/gschenz'
+alias configlg='/opt/homebrew/bin/lazygit --git-dir=/Users/gschenz/.cfg --work-tree=/Users/gschenz'
 alias lg='/opt/homebrew/bin/lazygit '
 
